@@ -9,7 +9,6 @@ import (
 	"log"
 	"net"
 	"strings"
-	"time"
 )
 
 func Handle(conn net.Conn) {
@@ -38,7 +37,6 @@ func Handle(conn net.Conn) {
 		return
 	}
 
-	time.Sleep(time.Second * 2)
 	path := parts[1]
 
 	switch path {
@@ -107,7 +105,7 @@ func writeOperationsJSON(writer io.Writer) error {
 }
 
 func writeOperationsXML(writer io.Writer) error {
-	page, err := ioutil.ReadFile("web/template/export.json")
+	page, err := ioutil.ReadFile("web/template/export.xml")
 	if err != nil {
 		log.Println(err)
 		return err
